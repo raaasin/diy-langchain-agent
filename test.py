@@ -5,11 +5,9 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-flash')
-
 file="image.png"
 image_data = open(file, "rb").read()
 image_bytes = io.BytesIO(image_data)
-
 safe = [
             {
                 "category": "HARM_CATEGORY_DANGEROUS",
@@ -32,13 +30,10 @@ safe = [
                 "threshold": "BLOCK_NONE",
             },
         ]
-
-
 picture = {
         'mime_type': 'image/png',
         'data': image_bytes.getvalue()  
         }
-
 response = model.generate_content(
                 ["""OCR all the contents and reply like this calories(if not visible then None):,nutrients(if not visible then None):[],ingredients(if not visible then None)[],general_product_name(if not visible then None):,ignore daily percentages etc, i just want numbers based on the nutritional composition per 100 grams or 100 milliliters of the product, rather than per serving and reply in a json format, 
                  
@@ -52,6 +47,4 @@ response = model.generate_content(
                 ),safety_settings=safe
             )
 response.resolve()
-
-
 print(response)
