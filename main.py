@@ -108,7 +108,6 @@ agent = (
 # Create the agent executor
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
-# Test cases with varying nutritional data
 test_cases = [
     {
         "input": '{"calories": 500, "nutrients": [{"name": "Total Fat", "amount": 20, "unit": "g"}, {"name": "Saturated Fat", "amount": 10, "unit": "g"}, {"name": "Total Sugars", "amount": 25, "unit": "g"}, {"name": "Sodium", "amount": 300, "unit": "mg"}, {"name": "Protein", "amount": 5, "unit": "g"}, {"name": "Dietary Fiber", "amount": 2, "unit": "g"}], "general_product_name": null}'
