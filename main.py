@@ -90,9 +90,11 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
+
 # Bind tools to LLM
 tools = [calculate_health_star_rating]
 llm_with_tools = llm.bind_tools(tools)
+
 
 # Create the agent
 agent = (
@@ -105,8 +107,10 @@ agent = (
     | OpenAIToolsAgentOutputParser()
 )
 
+
 # Create the agent executor
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
 
 test_cases = [
     {
@@ -125,6 +129,7 @@ test_cases = [
         "input": '{"calories": 250, "nutrients": [{"name": "Total Fat", "amount": 10, "unit": "g"}, {"name": "Saturated Fat", "amount": 2, "unit": "g"}, {"name": "Total Sugars", "amount": 5, "unit": "g"}, {"name": "Sodium", "amount": 150, "unit": "mg"}, {"name": "Protein", "amount": 20, "unit": "g"}, {"name": "Dietary Fiber", "amount": 2, "unit": "g"}], "general_product_name": null}'
     }
 ]
+
 
 def run_test_cases():
     results = []
