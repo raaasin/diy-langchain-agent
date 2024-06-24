@@ -94,7 +94,6 @@ prompt = ChatPromptTemplate.from_messages(
 tools = [calculate_health_star_rating]
 llm_with_tools = llm.bind_tools(tools)
 
-
 # Create the agent
 agent = (
     {
