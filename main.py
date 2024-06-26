@@ -90,7 +90,6 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-
 # Bind tools to LLM
 tools = [calculate_health_star_rating]
 llm_with_tools = llm.bind_tools(tools)
