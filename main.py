@@ -89,7 +89,6 @@ prompt = ChatPromptTemplate.from_messages(
         MessagesPlaceholder(variable_name="agent_scratchpad"),
     ]
 )
-
 # Bind tools to LLM
 tools = [calculate_health_star_rating]
 llm_with_tools = llm.bind_tools(tools)
